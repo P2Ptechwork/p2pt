@@ -1,27 +1,44 @@
 import React, { useState } from 'react';
-import './sch_registration.css';
+import axios from 'axios';
 
-const RegistrationPage = () => {
-    const [schoolName, setSchoolName] = useState('');
-    const [address, setAddress] = useState('');
-    const [adminHeadName, setAdminHeadName] = useState('');
-    const [mobile, setMobile] = useState('');
+function SchRegistration() {
+    const [formData, setFormData] = useState({
+        name: '',
+        head_name: '',
+        address: '',
+        head_email: '',
+        head_mobile: ''
+    });
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Send this data to your backend
-        console.log({ schoolName, address, adminHeadName, mobile });
-    };
 
-    return (
-        <form className="registration-form" onSubmit={handleSubmit}>
-            <input type="text" placeholder="School Name" value={schoolName} onChange={(e) => setSchoolName(e.target.value)} required />
-            <input type="text" placeholder="Address" value={address} onChange={(e) => setAddress(e.target.value)} required />
-            <input type="text" placeholder="Administration Head Name" value={adminHeadName} onChange={(e) => setAdminHeadName(e.target.value)} required />
-            <input type="tel" placeholder="Mobile" value={mobile} onChange={(e) => setMobile(e.target.value)} required />
-            <button type="submit">Register</button>
-        </form>
-    );
-};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-export default RegistrationPage;
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:8000/schools/', formData);
+      console.log(response.data);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
+
+  return (
+    <div>
+      <h1>Register School</h1>
+      <form onSubmit={handleSubmit}>
+        <input type="text" name="name" placeholder="School Name" onChange={handleChange} />
+        <input type="text" name="head_name" placeholder="Head Name" onChange={handleChange} />
+        <input type="text" name="address" placeholder="Address" onChange={handleChange} />
+        <input type="email" name="head_email" placeholder="Head Email" onChange={handleChange} />
+        <input type="tel" name="head_mobile" placeholder="Head Mobile" onChange={handleChange} />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  );
+}
+
+export default SchRegistration;
