@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import './MainPage.css';
+import './main_page.css';
 
 const MainPage = () => {
     const history = useHistory();
