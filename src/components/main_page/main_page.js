@@ -1,12 +1,12 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './main_page.css';
 
 const MainPage = () => {
-    const history = useHistory();
+    const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        history.push('/register');
+        navigate('/register');
     };
 
     return (
