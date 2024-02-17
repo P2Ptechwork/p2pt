@@ -9,7 +9,7 @@ function SchRegistration() {
         head_email: '',
         head_mobile: ''
     });
-
+// jhg
 
   const handleChange = (e) => {
     const { name, value } = e.target;
