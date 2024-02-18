@@ -21,7 +21,20 @@ function SchRegistration() {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
+  const handleGeoTagChange = (event) => {
+    if (event.target.name === 'GEO_TAG') {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+          const { latitude, longitude } = position.coords;
+          setFormData({ ...formData, GEO_TAG: `${latitude}, ${longitude}` });
+        });
+      } else {
+        console.log("Geolocation is not supported by this browser.");
+      }
+    } else {
+      setFormData({ ...formData, [event.target.name]: event.target.value });
+    }
+  };
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -91,10 +104,10 @@ function SchRegistration() {
         PIN_CODE:
         <input type="text" name="PIN_CODE" value={formData.PIN_CODE} onChange={handleChange} />
       </label>
-      <label>
-        GEO_TAG:
-        <input type="text" name="GEO_TAG" value={formData.GEO_TAG} onChange={handleChange} />
-      </label>
+      <button onClick={handleGeoTagChange} name="GEO_TAG">
+        Capture Current Location
+      </button>
+      <p>{formData.GEO_TAG}</p>
       <input type="submit" value="Register" />
     </form>
   );
