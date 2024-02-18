@@ -6,7 +6,7 @@ const MainPage = () => {
     const navigate = useNavigate();
 
     const handleButtonClick = () => {
-        navigate('/register');
+        navigate('/schregister');
     };
 
     return (
