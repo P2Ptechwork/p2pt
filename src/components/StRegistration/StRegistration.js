@@ -34,7 +34,7 @@ class St_registration extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`${process.env.API_URL}/st_register`, this.state)
+        axios.post('https://bakend.azurewebsites.net/st_register', this.state)
             .then(response => {
                 console.log(response);
             })
