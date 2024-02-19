@@ -39,7 +39,7 @@ function SchRegistration() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('http://127.0.0.1:8000/schregister', formData);
+      const response = await axios.post('https://bakend.azurewebsites.net/schregister', formData);
 
       if (response.status === 200) {
         console.log('Registration successful', response.data);

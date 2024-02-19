@@ -11,14 +11,14 @@ function LoginPage() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('http://127.0.0.1:8000/sch_login', {
+            const response = await axios.post('https://bakend.azurewebsites.net/sch_login', {
                 schoolId,
                 password,
             });
 
             if (response.status === 200) {
                 sessionStorage.setItem('schoolId', schoolId);
-                navigate('/stregister');
+                navigate('/schdashboard');
             } else {
                 // Handle error
             }

@@ -2,19 +2,16 @@ import React from 'react';
 import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 
-class St_registration extends React.Component {
+class TeacherRegistration extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             SCHOOL_ID: '',
-            STUDENT_NAME: '',
-            GRADE: '',
-            SECTION: '',
+            TEACHER_NAME: '',
+            QUALIFICATION: '',
             AADHAR_NO: '',
-            GUARDIAN_NAME: '',
-            RELATION: '',
-            GUARDIAN_MOBILE: '',
-            GUARDIAN_EMAIL: '',
+            TEACHER_MOBILE: '',
+            TEACHER_EMAIL: '',
             DOC_ID: '',
             D_NO: '',
             STREET: '',
@@ -22,9 +19,10 @@ class St_registration extends React.Component {
             CITY: '',
             DISTRICT: '',
             STATE: '',
-            PIN_CODE: ''
+            PIN_CODE: '',
         };
     }
+
     componentDidMount() {
         const schoolId = sessionStorage.getItem('schoolId');
         if (schoolId) {
@@ -40,7 +38,7 @@ class St_registration extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://bakend.azurewebsites.net/st_register', this.state)
+        axios.post('https://bakend.azurewebsites.net/tregister', this.state)
             .then(response => {
                 console.log(response);
             })
@@ -56,20 +54,14 @@ class St_registration extends React.Component {
                     <Form.Label>School ID</Form.Label>
                     <Form.Control type="text" placeholder="Enter School ID" name="SCHOOL_ID" value={this.state.SCHOOL_ID} readOnly />
                 </Form.Group>
-
-                <Form.Group controlId="formStudentName">
-                    <Form.Label>Student Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Student Name" name="STUDENT_NAME" onChange={this.handleChange} required />
+                <Form.Group controlId="formTeacherName">
+                    <Form.Label>Teacher Name</Form.Label>
+                    <Form.Control type="text" placeholder="Enter Teacher Name" name="TEACHER_NAME" onChange={this.handleChange} required />
                 </Form.Group>
 
-                <Form.Group controlId="formGrade">
-                    <Form.Label>Grade</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Grade" name="GRADE" onChange={this.handleChange} required />
-                </Form.Group>
-
-                <Form.Group controlId="formSection">
-                    <Form.Label>Section</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Section" name="SECTION" onChange={this.handleChange} />
+                <Form.Group controlId="formQualification">
+                    <Form.Label>Qualification</Form.Label>
+                    <Form.Control type="text" placeholder="Enter Qualification" name="QUALIFICATION" onChange={this.handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="formAadharNo">
@@ -77,24 +69,14 @@ class St_registration extends React.Component {
                     <Form.Control type="number" placeholder="Enter Aadhar No" name="AADHAR_NO" onChange={this.handleChange} />
                 </Form.Group>
 
-                <Form.Group controlId="formGuardianName">
-                    <Form.Label>Guardian Name</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Guardian Name" name="GUARDIAN_NAME" onChange={this.handleChange} required />
+                <Form.Group controlId="formTeacherMobile">
+                    <Form.Label>Teacher Mobile</Form.Label>
+                    <Form.Control type="text" placeholder="Enter Teacher Mobile" name="TEACHER_MOBILE" onChange={this.handleChange} required />
                 </Form.Group>
 
-                <Form.Group controlId="formRelation">
-                    <Form.Label>Relation</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Relation" name="RELATION" onChange={this.handleChange} />
-                </Form.Group>
-
-                <Form.Group controlId="formGuardianMobile">
-                    <Form.Label>Guardian Mobile</Form.Label>
-                    <Form.Control type="text" placeholder="Enter Guardian Mobile" name="GUARDIAN_MOBILE" onChange={this.handleChange} required />
-                </Form.Group>
-
-                <Form.Group controlId="formGuardianEmail">
-                    <Form.Label>Guardian Email</Form.Label>
-                    <Form.Control type="email" placeholder="Enter Guardian Email" name="GUARDIAN_EMAIL" onChange={this.handleChange} required />
+                <Form.Group controlId="formTeacherEmail">
+                    <Form.Label>Teacher Email</Form.Label>
+                    <Form.Control type="email" placeholder="Enter Teacher Email" name="TEACHER_EMAIL" onChange={this.handleChange} required />
                 </Form.Group>
 
                 <Form.Group controlId="formDocId">
@@ -145,4 +127,4 @@ class St_registration extends React.Component {
     }
 }
 
-export default St_registration;
+export default TeacherRegistration;
