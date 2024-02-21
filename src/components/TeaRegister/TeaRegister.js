@@ -20,9 +20,14 @@ class TeacherRegistration extends React.Component {
             DISTRICT: '',
             STATE: '',
             PIN_CODE: '',
+            SUBJECTS: [],
+            TEMP_SUBJECTS: [],
+            showSubjects: false
         };
     }
-
+    toggleShowSubjects = () => {
+        this.setState(prevState => ({ showSubjects: !prevState.showSubjects }));
+    }
     componentDidMount() {
         const schoolId = sessionStorage.getItem('schoolId');
         if (schoolId) {
@@ -30,15 +35,27 @@ class TeacherRegistration extends React.Component {
         }
     }
 
+    handleSubjectsChange = (event) => {
+        const subjects = Array.from(event.target.selectedOptions, option => option.value);
+        this.setState({ TEMP_SUBJECTS: subjects });
+    }
+
+
+
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         });
     }
-
+    addSubjects = () => {
+        this.setState(prevState => ({
+            SUBJECTS: [...prevState.SUBJECTS, ...prevState.TEMP_SUBJECTS],
+            TEMP_SUBJECTS: []
+        }));
+    }
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://bakend.azurewebsites.net/tregister', this.state)
+        axios.post('https://7931-115-98-50-151.ngrok-free.app/tregister', this.state)
             .then(response => {
                 console.log(response);
             })
@@ -48,6 +65,7 @@ class TeacherRegistration extends React.Component {
     }
 
     render() {
+        console.log(this.state.TEMP_SUBJECTS);
         return (
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group controlId="formSchoolId">
@@ -118,10 +136,30 @@ class TeacherRegistration extends React.Component {
                     <Form.Label>Pin Code</Form.Label>
                     <Form.Control type="text" placeholder="Enter Pin Code" name="PIN_CODE" onChange={this.handleChange} />
                 </Form.Group>
-
+                <Form.Group controlId="formSubjects">
+                    <Form.Label>Subjects</Form.Label>
+                    <Form.Control as="select" multiple name="SUBJECTS" onChange={this.handleSubjectsChange}>
+                        <option>ENGLISH</option>
+                        <option>TELUGU</option>
+                        <option>HINDI</option>
+                        <option>SCIENCE</option>
+                        <option>MATHEMATICS</option>
+                        <option>SOCIAL</option>
+                    </Form.Control>
+                    <Button onClick={this.addSubjects}>Add Subjects</Button>
+                    {this.state.SUBJECTS.map((subject, index) => (
+                        <p key={index}>{subject}</p>
+                    ))}
+                </Form.Group>
                 <Button variant="primary" type="submit">
                     Register
                 </Button>
+                <Button variant="primary" onClick={this.toggleShowSubjects}>
+                    Show Subjects
+                </Button>
+                {this.state.showSubjects && this.state.SUBJECTS.map((subject, index) => (
+                    <p key={index}>{subject}</p>
+                ))}
             </Form>
         );
     }
