@@ -54,6 +54,8 @@ function SchRegistration() {
   };
 
   return (
+    <div className='container' >
+
     <form onSubmit={handleSubmit}>
       <label>
         SCHOOL_NAME:
@@ -110,6 +112,7 @@ function SchRegistration() {
       <p>{formData.GEO_TAG}</p>
       <input type="submit" value="Register" />
     </form>
+    </div>
   );
 }
 

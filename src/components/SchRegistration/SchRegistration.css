@@ -3,14 +3,38 @@
     flex-direction: column;
     width: 300px;
     margin: 0 auto;
+    border-radius: 5px;
+background: rgb(249, 250, 250);
+border: 1px solid rgb(181, 189, 196);
+font-size: 16px;
+height: 40px;
+line-height: 24px;
+padding: 7px 8px;
+color: rgb(8, 9, 10);
+box-shadow: none;
+:focus{
+    background-color: #fff;
+    border-color: #3b49df;
+    box-shadow: 1px 1px 0 #3b49df;
+}
 }
 
 .registration-form input {
     margin-bottom: 10px;
     padding: 10px;
+    
 }
 
 .registration-form button {
     padding: 10px;
     font-size: 20px;
+}
+
+
+
+
+.container {
+    color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
