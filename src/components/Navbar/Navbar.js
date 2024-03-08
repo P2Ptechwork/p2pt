@@ -41,12 +41,12 @@ const Navbar = () => {
 
 
         <MobileMenu isOpen={isOpen}>
-          <MobileLink onClick={handleLinkClick} to="/">Home</MobileLink>
-          <MobileLink onClick={handleLinkClick} to="/blog">Blog</MobileLink>
-          <MobileLink onClick={handleLinkClick} to="/p2p">p2p</MobileLink>
-          <MobileLink onClick={handleLinkClick} to="/courses">Courses</MobileLink>
-          <MobileLink onClick={handleLinkClick} to="/about">About</MobileLink>
-          <MobileLink onClick={handleLinkClick} to="/contact">Contact</MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/"><p>Home</p></MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/blog"><p>Blog</p></MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/p2p"><p>p2p</p></MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/courses"><p>Courses</p></MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/about"><p>About</p></MobileLink>
+          <MobileLink onClick={handleLinkClick} to="/contact"><p>Contact</p></MobileLink>
           <MobileLink onClick={handleLinkClick} to="/schregister"><SchRegistrationButton  /></MobileLink>
           
         </MobileMenu>
