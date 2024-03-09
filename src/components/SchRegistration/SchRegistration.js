@@ -64,7 +64,7 @@ function SchRegistration() {
 
         <form action="#" class="form" onSubmit={handleSubmit}>
           <div class="input-box">
-            <label>SCHOOL_NAME</label>
+            <label>School Name</label>
             <input
               type="text"
               name="SCHOOL_NAME"
@@ -73,7 +73,7 @@ function SchRegistration() {
             />
           </div>
           <div class="input-box">
-            <label>SYLLABUS_TYPE</label>
+            <label>Syllabus Type</label>
             <input
               type="text"
               name="SYLLABUS_TYPE"
@@ -82,7 +82,7 @@ function SchRegistration() {
             />
           </div>
           <div class="input-box">
-            <label>ADH_NAME</label>
+            <label>ADH Name</label>
             <input
               type="text"
               name="ADH_NAME"
@@ -92,7 +92,7 @@ function SchRegistration() {
           </div>
           <div class="column">
             <div class="input-box">
-              <label>ADH_MOBILE</label>
+              <label>ADH Mobile</label>
               <input
                 type="text"
                 name="ADH_MOBILE"
@@ -101,7 +101,7 @@ function SchRegistration() {
               />
             </div>
             <div class="input-box">
-              <label>ADH_EMAIL</label>
+              <label>ADH Email</label>
               <input
                 type="text"
                 name="ADH_EMAIL"
@@ -111,7 +111,7 @@ function SchRegistration() {
             </div>
           </div>
           <div class="input-box">
-            <label>D_NO</label>
+            <label>D No</label>
             <input
               type="text"
               name="D_NO"
@@ -196,7 +196,7 @@ function SchRegistration() {
           </button>
 
           <p>{formData.GEO_TAG}</p>
-          <input type="submit" value="Register" />
+          <button type="submit" value="Register" >Register</button>
         </form>
       </section>
     </div>

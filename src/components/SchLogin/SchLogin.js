@@ -28,17 +28,21 @@ function LoginPage() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                School ID:
-                <input type="text" value={schoolId} onChange={(e) => setSchoolId(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-            </label>
-            <input type="submit" value="Log in" />
+      <div className="body1">
+      <section class="container">
+        <header>Login Form</header>
+        <form action="#" class="form" onSubmit={handleSubmit}>
+        <div class="input-box">
+            <label>School ID</label>
+            <input type="text" value={schoolId} onChange={(e) => setSchoolId(e.target.value)} />
+            
+            <label>Password</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+        </div>
+            <button type="submit" value="Log in">Login</button>
         </form>
+        </section>
+        </div>
     );
 }
 
