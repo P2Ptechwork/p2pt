@@ -40,7 +40,7 @@ class St_registration extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://bakend.azurewebsites.net/st_register', this.state)
+        axios.post('https://4a8d-2409-408c-5eb2-b860-b58c-63d0-719a-d5f2.ngrok-free.app/st_register', this.state)
             .then(response => {
                 console.log(response);
             })

@@ -55,7 +55,7 @@ class TeacherRegistration extends React.Component {
     }
     handleSubmit = (event) => {
         event.preventDefault();
-        axios.post('https://7931-115-98-50-151.ngrok-free.app/tregister', this.state)
+        axios.post('https://4a8d-2409-408c-5eb2-b860-b58c-63d0-719a-d5f2.ngrok-free.app/tregister', this.state)
             .then(response => {
                 console.log(response);
             })

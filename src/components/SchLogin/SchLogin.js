@@ -11,7 +11,7 @@ function LoginPage() {
         event.preventDefault();
 
         try {
-            const response = await axios.post('https://bakend.azurewebsites.net/sch_login', {
+            const response = await axios.post('https://4a8d-2409-408c-5eb2-b860-b58c-63d0-719a-d5f2.ngrok-free.app/sch_login', {
                 schoolId,
                 password,
             });
